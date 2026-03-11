@@ -1,0 +1,9 @@
+SELECT `id`, `imie`, `nazwisko` FROM `personel` WHERE `status` = 'policjant'
+
+SELECT typ, COUNT(typ) FROM `pojazdy` GROUP BY(typ);
+
+SELECT id, nazwisko FROM personel WHERE id NOT IN (SELECT id_personel FROM rejestr);
+SELECT DISTINCT(personel.id), nazwisko FROM `personel` LEFT JOIN rejestr ON personel.id = rejestr.id_personel where rejestr.id_personel IS NULL;
+
+INSERT INTO `rejestr` (`id`, `data`, `id_personel`, `id_pojazd`) VALUES (NULL, NOW(), '1', '14');
+
